@@ -1,0 +1,17 @@
+*{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.btns{
+  width: 60px;
+  padding:.3rem 0;
+  cursor: pointer;
+}
+
+.container{
+  display: flex;
+  align-items: center;
+  gap:1rem;
+}
