@@ -25,7 +25,10 @@ app.post("/get-data",async(req,res)=>{
   const {liAt,token,ssid} = req.body
     console.log(req.body)
   const response = await axios.get(
-    "https://www.linkedin.com/voyager/api/entities/companies/2652230",
+   // "https://www.linkedin.com/voyager/api/me",
+    //"https://www.linkedin.com/voyager/api/identity/profiles/ACoAAD9XPdkBkCEWB-plclErtC9k1USK0ZgD83Y",
+    //"https://www.linkedin.com/voyager/api/messaging/conversations",
+    //"https://www.linkedin.com/voyager/api/relationships/invitationsSummary",
     {
       headers: {
         "csrf-token":`${token}`,
