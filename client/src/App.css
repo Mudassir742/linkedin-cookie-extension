@@ -4,14 +4,16 @@
   box-sizing: border-box;
 }
 
-.btns{
-  width: 60px;
-  padding:.3rem 0;
-  cursor: pointer;
+html, body, #root {
+  height: 200px;
+  width: 200px;
 }
 
-.container{
-  display: flex;
-  align-items: center;
-  gap:1rem;
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }

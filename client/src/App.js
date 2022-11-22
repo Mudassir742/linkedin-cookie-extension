@@ -15,7 +15,7 @@ function App() {
           ssid: "ajax:7205970595350190655",
         });
         console.log(response);
-        setEmployeCount(response.data?.emplyeCount)
+        setEmployeCount(response.data?.emplyeCount);
       } catch (error) {
         console.log(error);
       }
@@ -24,7 +24,16 @@ function App() {
     getData();
   }, []);
 
-  return <>{emplyeCount && <h1>{emplyeCount}</h1>}</>;
+  return (
+    <div>
+      {emplyeCount && (
+        <h1>
+          {emplyeCount} - {"hello"}
+        </h1>
+      )}
+      <span>helllo</span>
+    </div>
+  );
 }
 
 export default App;
