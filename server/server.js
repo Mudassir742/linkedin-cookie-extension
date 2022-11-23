@@ -15,7 +15,7 @@ app.get("/", (req, res) => res.send("Server is Running"));
 app.post("/get-data", async (req, res) => {
   try {
     const { liAt, token, ssid } = req.body;
-
+    console.log(liAt,token,ssid)
     if (!liAt || !token || !ssid) {
       return res.status(400).json({ error: "bad input" });
     }
