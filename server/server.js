@@ -59,7 +59,7 @@ app.post("/get-data", async (req, res) => {
 
       return res.status(200).json({
         connectionCount: response.data.connectionsCount,
-        followerCount: response.data.response.data.followersCount,
+        followerCount: response.data.followersCount,
       });
     }
     return res.status(404).json({ error: "missing-URN" });
