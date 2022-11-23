@@ -1,11 +1,18 @@
 /*global chrome*/
 chrome.runtime.onInstalled.addListener(() => {
   console.log("Chrome extension successfully installed!");
+  chrome.cookies.getAll(
+    {
+      url: "https://www.linkedin.com/feed/",
+    },
+    function (cookie) {
+      let requiredCookies = cookie.filter(
+        (value) => value.name === "li_at" || value.name === "JSESSIONID"
+      );
+      console.log("Cookie : ", requiredCookies);
+    }
+  );
 
-  chrome.cookies.get({'url': "https://www.linkedin.com/feed/", 'name': "li_at"}, function (cookie) {
-    console.log("Cookie : ",cookie)
-  });
-    
   fetch("http://localhost:5000/get-data", {
     method: "POST",
     headers: {
