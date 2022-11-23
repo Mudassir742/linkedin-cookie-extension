@@ -1,14 +1,17 @@
 {
   "manifest_version": 3,
-  "name": "React Chrome Extension",
+  "name": "LinkedIn MiniProfile",
   "version": "0.1",
   "description": "LinkedIn Mini Profile",
   "background": {
     "service_worker": "./background.js"
   },
   "permissions": ["cookies"],
-  "host_permissions": ["https://www.google.com/", "https://www.linkedin.com/feed/"],
-  "short_name": "React Extension",
+  "host_permissions": [
+    "https://www.google.com/",
+    "https://www.linkedin.com/feed/"
+  ],
+  "short_name": "Profile",
   "action": {
     "default_popup": "popup.html",
     "default_title": "LinkedIn MiniProfile",
