@@ -12,6 +12,9 @@ html, body, #root {
 }
 
 body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
         'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -20,24 +23,50 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-.main-container{
-    width:100%;
-    height:100%;
-    padding:10px 20px;
+.main-container {
+    width: 100%;
+    height: 100%;
+    padding: 10px 20px;
+    display: none;
 }
 
-.connection, .followers{
+.connection, .followers {
     display: flex;
-    gap:1rem;
+    gap: 1rem;
 }
 
-.connection{
+.connection {
     margin: 1rem 0;
 }
 
-.user{
-    width:100%;
+.user {
+    width: 100%;
     text-align: center;
     margin: 1rem 0;
-    color:#3F7CEB;
+    color: #3F7CEB;
+}
+
+#error {
+    color: 'red';
+    display: none;
+}
+
+.loader {
+    display: block;
+    border: 8px solid #ffffff;
+    border-radius: 50%;
+    border-top: 8px solid #3F7CEB;
+    width: 60px;
+    height: 60px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }

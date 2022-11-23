@@ -30,6 +30,8 @@ app.post("/get-data", async (req, res) => {
       }
     );
 
+    console.log(getProfileKey.data.miniProfile.firstName);
+
     let entityURN = getProfileKey.data.miniProfile.entityUrn.split(":")[3];
 
     console.log(entityURN);
@@ -60,6 +62,10 @@ app.post("/get-data", async (req, res) => {
       return res.status(200).json({
         connectionCount: response.data.connectionsCount,
         followerCount: response.data.followersCount,
+        userName:
+          getProfileKey.data.miniProfile.firstName +
+          " " +
+          getProfileKey.data.miniProfile.lastName,
       });
     }
     return res.status(404).json({ error: "missing-URN" });

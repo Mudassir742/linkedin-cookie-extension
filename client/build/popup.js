@@ -36,10 +36,22 @@ chrome.cookies.getAll(
 
         let connectionTag = document.getElementById("connection");
         let followerTag = document.getElementById("followers");
+        let user = document.getElementById("user");
+        let main = document.getElementById("data");
+        let loader = document.getElementById("loader");
 
+        user.innerText = data.userName;
         connectionTag.innerText = data.connectionCount;
         followerTag.innerText = data.followerCount;
+
+        main.style.display = "block";
+        loader.style.display = "none";
       })
-      .catch((error) => console.log("Error:", error));
+      .catch((error) => {
+        console.log("Error:", error);
+
+        let errorTag = document.getElementById("error");
+        errorTag.style.display = "block";
+      });
   }
 );
