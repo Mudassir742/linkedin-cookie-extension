@@ -6,27 +6,38 @@ chrome.runtime.onInstalled.addListener(() => {
       url: "https://www.linkedin.com/feed/",
     },
     function (cookie) {
-      let requiredCookies = cookie.filter(
-        (value) => value.name === "li_at" || value.name === "JSESSIONID"
-      );
-      console.log("Cookie : ", requiredCookies);
+      let liAt, ssid, token;
+
+      console.log("Cookie : ", cookie);
+
+      for (let i = 0; i < cookie.length; i++) {
+        if (cookie[i].name === "li_at") {
+          liAt = cookie[i].value;
+        }
+        if (cookie[i].name === "JSESSIONID") {
+          console.log(cookie[i].value.substring(1, cookie[i].value.length - 1));
+
+          token = cookie[i].value.substring(1, cookie[i].value.length - 1);
+          ssid = cookie[i].value.substring(1, cookie[i].value.length - 1);
+        }
+      }
+
+      fetch("http://localhost:5000/get-data", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          liAt,
+          token,
+          ssid,
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => console.log(data))
+        .catch((error) => console.log("Error:", error));
     }
   );
-
-  fetch("http://localhost:5000/get-data", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      liAt: "AQEDAT9XPdkFy5DxAAABhJZsuEIAAAGEunk8Qk0AS_9D3llQ-HI01sZVN7wcrZBuvLs0ZLj7XraZxPLDYRJl9_vP1UYbV1I6QHVK-LnFpzxHeoMYu4fqY39f-pgtFjpZ-Mo-dvnlP2jD1Z8tOnqhYj01",
-      token: "ajax:7205970595350190655",
-      ssid: "ajax:7205970595350190655",
-    }),
-  })
-    .then((response) => response.json())
-    .then((data) => console.log(data))
-    .catch((error) => console.log("Error:", error));
 
   return;
 });
