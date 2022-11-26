@@ -30,13 +30,17 @@ body {
     display: none;
 }
 
-.connection, .followers {
+.connection, .followers, .inbox {
     display: flex;
     gap: 1rem;
 }
 
 .connection {
     margin: 1rem 0;
+}
+
+.inbox {
+    margin-top: 1rem;
 }
 
 .user {

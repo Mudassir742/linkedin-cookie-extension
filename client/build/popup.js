@@ -2,6 +2,7 @@ var connectionTag = document.getElementById("connection");
 var followerTag = document.getElementById("followers");
 var user = document.getElementById("user");
 var main = document.getElementById("data");
+var inbox = document.getElementById("inbox");
 var loader = document.getElementById("loader");
 var errorTag = document.getElementById("error");
 
@@ -53,7 +54,8 @@ chrome.cookies.getAll(
         user.innerText = data.userName;
         connectionTag.innerText = data.connectionCount;
         followerTag.innerText = data.followerCount;
-
+        inbox.innerText = data.messageCount
+        
         main.style.display = "block";
         loader.style.display = "none";
       })
