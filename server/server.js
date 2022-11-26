@@ -14,8 +14,9 @@ app.get("/", (req, res) => res.send("Server is Running"));
 
 app.post("/get-data", async (req, res) => {
   try {
+
     const { liAt, token, ssid } = req.body;
-    console.log(liAt,token,ssid)
+    
     if (!liAt || !token || !ssid) {
       return res.status(400).json({ error: "bad input" });
     }
@@ -29,8 +30,6 @@ app.post("/get-data", async (req, res) => {
         },
       }
     );
-
-    console.log(getProfileKey.data.miniProfile.firstName);
 
     let entityURN = getProfileKey.data.miniProfile.entityUrn.split(":")[3];
 
@@ -66,6 +65,7 @@ app.post("/get-data", async (req, res) => {
           getProfileKey.data.miniProfile.firstName +
           " " +
           getProfileKey.data.miniProfile.lastName,
+          messageCount:messageCount.data.elements.length
       });
     }
     return res.status(404).json({ error: "missing-URN" });
