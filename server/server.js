@@ -7,16 +7,15 @@ const axios = require("axios");
 
 const port = 5000;
 
-app.use(cors({ credentials: true }));
+app.use(cors());
 app.use(express.json());
 
 app.get("/", (req, res) => res.send("Server is Running"));
 
 app.post("/get-data", async (req, res) => {
   try {
-
     const { liAt, token, ssid } = req.body;
-    
+
     if (!liAt || !token || !ssid) {
       return res.status(400).json({ error: "bad input" });
     }
@@ -65,7 +64,7 @@ app.post("/get-data", async (req, res) => {
           getProfileKey.data.miniProfile.firstName +
           " " +
           getProfileKey.data.miniProfile.lastName,
-          messageCount:messageCount.data.elements.length
+        messageCount: messageCount.data.elements.length,
       });
     }
     return res.status(404).json({ error: "missing-URN" });
