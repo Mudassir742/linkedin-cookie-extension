@@ -20,8 +20,8 @@ chrome.cookies.getAll(
         liAt = cookie[i].value;
       }
       if (cookie[i].name === "JSESSIONID") {
-        token = "ajax:" + cookie[i].value.replace(/[^0-9]/g,'')
-        ssid = "ajax:" + cookie[i].value.replace(/[^0-9]/g,'')
+        token = "ajax:" + cookie[i].value.replace(/[^0-9]/g, "");
+        ssid = "ajax:" + cookie[i].value.replace(/[^0-9]/g, "");
       }
     }
 
@@ -54,8 +54,8 @@ chrome.cookies.getAll(
         user.innerText = data.userName;
         connectionTag.innerText = data.connectionCount;
         followerTag.innerText = data.followerCount;
-        inbox.innerText = data.messageCount
-        
+        inbox.innerText = data.messageCount;
+
         main.style.display = "block";
         loader.style.display = "none";
       })
