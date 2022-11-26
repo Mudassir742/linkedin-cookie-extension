@@ -19,8 +19,8 @@ chrome.cookies.getAll(
         liAt = cookie[i].value;
       }
       if (cookie[i].name === "JSESSIONID") {
-        token = "ajax:" + cookie[i].value.split(":")[1];
-        ssid = "ajax:" + cookie[i].value.split(":")[1];
+        token = "ajax:" + cookie[i].value.replace(/[^0-9]/g,'')
+        ssid = "ajax:" + cookie[i].value.replace(/[^0-9]/g,'')
       }
     }
 
